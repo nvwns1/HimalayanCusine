@@ -29,6 +29,9 @@
       color: var(--color-yellow);
     }
   }
+  .active {
+    color: var(--color-orange);
+  }
 }
 .mobileLinkContainer {
   position: absolute;

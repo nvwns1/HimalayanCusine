@@ -38,8 +38,11 @@ const Navbar = () => {
 
   const deviceType = useDeviceType();
 
-  const [hamburgerOpen, setHamburgerOpen] = useState(true);
-  const handleHamburgerClick = () => setHamburgerOpen(!hamburgerOpen);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const handleHamburgerClick = () => {
+    if (deviceType === EDeviceType.Desktop) return;
+    setHamburgerOpen(!hamburgerOpen);
+  };
 
   const mobileRootRef = useRef<HTMLDivElement>(null);
 
@@ -61,15 +64,7 @@ const Navbar = () => {
 
   const navbarClasses = {
     navbarRoot: classNames(styles.NavbarRoot, "primarySurface"),
-    navbarItem: classNames(
-      styles.rightLinkItem,
-      pathName === "/" && styles.active
-    ),
     mobileRoot: classNames(styles.mobileLinkContainer, "primarySurface"),
-    mobileRootItem: classNames(
-      styles.mobileLinkItem,
-      pathName === "/" && styles.active
-    ),
   };
 
   const desktopView = (
@@ -86,7 +81,10 @@ const Navbar = () => {
         ) : (
           <Link
             key={navLink.href}
-            className={navbarClasses.navbarItem}
+            className={classNames(
+              styles.rightLinkItem,
+              navLink.href === pathName && styles.active
+            )}
             href={`${navLink.href}`}
           >
             {navLink.name}
@@ -123,7 +121,10 @@ const Navbar = () => {
               <Link
                 onClick={handleHamburgerClick}
                 key={navLink.href}
-                className={navbarClasses.mobileRootItem}
+                className={classNames(
+                  styles.mobileLinkItem,
+                  navLink.href === pathName && styles.active
+                )}
                 href={`${navLink.href}`}
               >
                 {navLink.name}

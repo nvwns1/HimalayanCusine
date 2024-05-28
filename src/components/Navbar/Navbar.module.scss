@@ -1,0 +1,55 @@
+.NavbarRoot {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  font-size: var(--font-sm);
+  border-bottom: 1px solid var(--gray-50);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+
+  .leftLogo {
+    width: 200px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rightLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    font-weight: 300;
+
+    .rightLinkItem:hover {
+      color: var(--color-yellow);
+    }
+  }
+}
+.mobileLinkContainer {
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobileLinkItem {
+  padding: 8px;
+  font-size: var(--font-md);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--color-orange);
+  }
+  &.active {
+    color: var(--color-orange);
+  }
+}

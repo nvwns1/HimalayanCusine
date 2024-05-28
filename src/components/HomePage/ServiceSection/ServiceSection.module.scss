@@ -1,7 +1,35 @@
-.mainRoot {
+.serviceSectionRoot {
   width: 100%;
-  height: 100dvh;
-  /* background-color: var(--primary-surface); */
-  /* overflow-x: hidden;
-    overflow-y: scroll; */
+  padding: 2.75rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  .sectionHeading {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  .sectionHeadingAccent {
+    color: var(--color-orange);
+  }
+  .serviceCardRow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .serviceSectionRoot {
+    gap: 1rem;
+  }
+  .serviceCardRow {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }

@@ -1,7 +1,49 @@
-.mainRoot {
+.heroSectionRoot {
   width: 100%;
-  height: 100dvh;
-  /* background-color: var(--primary-surface); */
-  /* overflow-x: hidden;
-    overflow-y: scroll; */
+  height: 100vh;
+  display: flex;
+}
+.leftColumn {
+  height: 100%;
+  width: 55%;
+  background-color: red;
+}
+
+.rightColumn {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  .heading {
+    font-size: var(--text-lg);
+  }
+  .accentHeading {
+    color: var(--color-orange);
+  }
+
+  .description {
+    font-size: var(--font-sm);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroSectionRoot {
+    flex-direction: column;
+    height: 85%;
+    .leftColumn {
+      width: 100%;
+      height: 45%;
+    }
+    .rightColumn {
+      width: 100%;
+      height: 40%;
+      gap: 1rem;
+      padding: 1rem;
+      align-items: center;
+    }
+  }
 }

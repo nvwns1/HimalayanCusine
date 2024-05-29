@@ -1,7 +1,8 @@
 .heroSectionRoot {
   width: 100%;
-  height: 100vh;
+  height: calc(100% - 80px);
   display: flex;
+  padding: 0 2.75rem;
 }
 .leftColumn {
   height: 100%;
@@ -16,7 +17,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-  padding: 1.5rem;
 
   .heading {
     font-size: var(--text-lg);

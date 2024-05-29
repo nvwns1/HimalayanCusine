@@ -3,7 +3,7 @@
   height: 80px;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 0 2.75rem;
   font-size: var(--font-sm);
   border-bottom: 1px solid var(--gray-50);
   position: sticky;
@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 2rem;
     font-weight: 300;
 
     .rightLinkItem:hover {
@@ -39,13 +39,13 @@
   z-index: 9;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mobileLinkItem {
-  padding: 8px;
+  padding: 0.5rem;
   font-size: var(--font-md);
   transition: color 0.3s ease;
 
@@ -54,5 +54,11 @@
   }
   &.active {
     color: var(--color-orange);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .NavbarRoot {
+    padding: 0 1.5rem;
   }
 }

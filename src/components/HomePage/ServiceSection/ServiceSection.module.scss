@@ -18,18 +18,21 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 1rem;
     padding: 1rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   .serviceSectionRoot {
+    padding: 1.5rem;
     gap: 1rem;
   }
   .serviceCardRow {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
 }

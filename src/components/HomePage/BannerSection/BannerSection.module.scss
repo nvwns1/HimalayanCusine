@@ -2,6 +2,7 @@
   width: 100%;
   height: 400px;
   padding: 2.75rem;
+  gap: 1.5rem;
 
   display: flex;
   justify-content: center;
@@ -10,26 +11,12 @@
   .leftColumn {
     width: 50%;
     height: 100%;
-    background-color: red;
     justify-content: center;
     align-items: center;
-    position: relative;
 
     .image1 {
-      width: 250px;
-      height: 250px;
-      position: absolute;
-      left: 15%;
-      bottom: 0;
-      border: 0.75rem solid var(--gray-20);
-      background-color: var(--gray-60);
-    }
-    .image2 {
-      width: 250px;
-      height: 250px;
-      position: absolute;
-      right: 15%;
-      top: 0;
+      width: 100%;
+      height: 100%;
       border: 0.75rem solid var(--gray-20);
       background-color: var(--gray-60);
     }
@@ -41,23 +28,11 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .bannerSectionRoot {
-    .leftColumn {
-      .image1,
-      .image2 {
-        width: 200px;
-        height: 200px;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 769px) {
   .bannerSectionRoot {
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     height: 200px;
     padding: 1rem;
     .leftColumn {
@@ -69,10 +44,6 @@
         width: 100%;
         height: 100%;
         position: block;
-      }
-
-      .image2 {
-        display: none;
       }
     }
   }

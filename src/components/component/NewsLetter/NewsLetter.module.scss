@@ -1,0 +1,12 @@
+.newsLetterRoot {
+  width: 200px;
+  display: flex;
+  gap: 0.5rem;
+
+  .inputField {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}

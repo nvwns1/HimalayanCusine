@@ -87,3 +87,7 @@ a {
     --text-lg: 3rem; /* 48px */
   }
 }
+
+p {
+  font-size: var(--font-md);
+}

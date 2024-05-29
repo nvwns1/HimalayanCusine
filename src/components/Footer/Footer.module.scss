@@ -14,7 +14,7 @@
     .column3 {
       display: flex;
       flex-direction: column;
-      gap: 0.875rem;
+      gap: 1rem;
 
       .column2List {
         list-style: none;
@@ -28,6 +28,32 @@
         li:hover {
           cursor: pointer;
           text-decoration: underline;
+        }
+      }
+
+      // Column 3
+      .column3Body {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .iconRow {
+          display: flex;
+          flex-direction: row;
+          gap: 1.5rem;
+          .icon {
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.1);
+              transition: transform 0.3s ease-in-out;
+            }
+          }
+        }
+        .newsletter,
+        .iconSection {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
         }
       }
     }

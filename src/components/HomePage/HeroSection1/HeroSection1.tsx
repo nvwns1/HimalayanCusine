@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./HeroSection1.module.scss";
 import classNames from "classnames";
 import Button from "@/components/component/Button/Button";
+import Image from "next/image";
 
 const HeroSection1 = () => {
   const homePageRootClasses = classNames(
@@ -11,7 +12,16 @@ const HeroSection1 = () => {
 
   return (
     <section className={homePageRootClasses}>
-      <div className={styles.leftColumn}>Image will be here</div>
+      <div className={styles.leftColumn}>
+        <Image
+          src="/homepage/momo.jpg"
+          alt="Logo"
+          height={800}
+          width={800}
+          className={styles.image}
+          priority
+        />
+      </div>
       <div className={styles.rightColumn}>
         <p className={styles.heading}>
           Discover
@@ -25,6 +35,15 @@ const HeroSection1 = () => {
         <Button className={styles.CTAButton} background="filled">
           Reservation
         </Button>
+      </div>
+      <div className={styles.imageWrapper}>
+        <Image
+          src="/homepage/image.png"
+          alt="Logo"
+          height={800}
+          width={800}
+          className={styles.image1}
+        />
       </div>
     </section>
   );

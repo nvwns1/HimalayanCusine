@@ -11,12 +11,13 @@
   .leftColumn {
     width: 50%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
 
     .image1 {
-      width: 100%;
+      width: 50%;
       height: 100%;
+      align-items: end;
       border: 0.75rem solid var(--gray-20);
       background-color: var(--gray-60);
     }

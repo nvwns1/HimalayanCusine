@@ -5,9 +5,7 @@ import styles from "./Footer.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import NewsLetter from "../component/NewsLetter/NewsLetter";
-import InstagramIconSvg from "@/lib/Svgs/InstagramIconSvg";
-import FacebookIconSvg from "@/lib/Svgs/facebookIconSvg";
-import WhatsappIconSvg from "@/lib/Svgs/WhatsappIconSvg";
+import { FacebookIconSvg, InstagramIconSvg, WhatsappIconSvg } from "@/lib/Svgs";
 
 const Footer = () => {
   const footerRootClasses = classNames(styles.footerRoot, "primarySurface");

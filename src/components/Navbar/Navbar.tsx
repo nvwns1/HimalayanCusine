@@ -10,7 +10,7 @@ import { usePathname, useRouter } from "next/navigation";
 import useDeviceType from "@/hooks/useWindowDimension";
 import { EDeviceType } from "@/lib/constants";
 import { ConditionallyRender } from "@/lib/helper/ConditionalRender";
-import HamburgerIcon from "@/lib/Svgs/HamburgerIcon";
+import { HamburgerIcon } from "@/lib/Svgs";
 
 enum NavButtonIdEnum {
   HOME = "/",

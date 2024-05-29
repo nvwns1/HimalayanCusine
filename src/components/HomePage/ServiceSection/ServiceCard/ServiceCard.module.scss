@@ -15,10 +15,18 @@
     height: 140px;
     width: 180px;
     background-color: var(--color-orange);
+
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
   }
 
   .heading {
     font-size: var(--font-lg);
+    font-weight: 700;
     color: var(--color-orange);
   }
   .description {

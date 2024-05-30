@@ -15,7 +15,6 @@ export default function Home() {
       <HeroSection3 />
       <BannerSection />
       <ReviewSection />
-      <Footer />
     </React.Fragment>
   );
 }

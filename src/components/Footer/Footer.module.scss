@@ -60,6 +60,18 @@
 
     .columnHeading {
       font-size: var(--font-lg);
+      position: relative;
+      padding: 4px 0;
+    }
+    .columnHeading::after {
+      content: "";
+      display: block;
+      width: 30%;
+      height: 2px;
+      background-color: var(--gray-20);
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
   }
 

@@ -1,0 +1,14 @@
+.contactSection {
+  display: flex;
+  height: calc(100vh - 80px);
+  text-align: center;
+  padding: 0 2.75rem;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .contactSection {
+    padding: 1.25rem;
+    height: max-content;
+  }
+}

@@ -1,13 +1,14 @@
-import Button from "@/components/component/Button/Button";
+import ReservationHeading from "@/components/ReservationPage/ReservationHeading/ReservationHeading";
+import styles from "./reservation.module.scss";
 import React from "react";
+import ReservationBody from "@/components/ReservationPage/ReservationBody/ReservationBody";
 
 const page = () => {
   return (
-    <>
-      <Button content="This is a button" size="md" background="outline">
-        Button
-      </Button>
-    </>
+    <section className={styles.reservationSection}>
+      <ReservationHeading />
+      <ReservationBody />
+    </section>
   );
 };
 

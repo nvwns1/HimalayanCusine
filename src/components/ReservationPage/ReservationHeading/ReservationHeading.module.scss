@@ -1,0 +1,27 @@
+.reservationHeadingWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.75rem;
+
+  .reservationHeading {
+    font-size: var(--text-lg);
+    .reservationHeadingAccent {
+      color: var(--color-orange);
+    }
+  }
+  .subHeading {
+    font-size: var(--font-lg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reservationHeadingWrapper {
+    gap: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    height: 100%;
+  }
+}

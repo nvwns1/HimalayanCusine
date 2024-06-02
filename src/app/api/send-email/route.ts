@@ -16,8 +16,7 @@ import * as Yup from "yup";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(body);
-    const { name, email, message } = body as IContactFormValues;
+    const { name, email, message, type } = body as IContactFormValues;
 
     await contactFormSchema.validate(
       { name, email, message },
@@ -42,7 +41,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: email,
       to: ToUserEmailEnv,
-      subject: `Contact Form Submission from ${name}`,
+      subject: `${type} from ${name}`,
       text: message,
       html: `<p>${message}</p>`,
     });

@@ -4,6 +4,7 @@ export interface IContactFormValues {
   name: string;
   email: string;
   message: string;
+  type?: string;
 }
 
 export const contactFormSchema = Yup.object().shape({

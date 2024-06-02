@@ -7,7 +7,6 @@ import {
   IContactFormValues,
 } from "@/lib/validation/ContactFormSchema";
 import * as Yup from "yup";
-import { db } from "@/lib/variable/envVariable";
 
 const initialState: IContactFormValues = {
   name: "",
@@ -25,10 +24,11 @@ const ContactForm = () => {
     });
   };
 
-  /*TODO: Handle Submit */
+  /*TODO: Handle Submit using tanstack*/
   const handleSubmit = async (e: FormEvent) => {
     try {
       // Validate the form data
+      formValue.type = "Contact Form Submission";
       await contactFormSchema.validate(formValue, { abortEarly: false });
       setErrors({});
 
@@ -68,7 +68,6 @@ const ContactForm = () => {
         <div className={styles.inputRow}>
           <label className={styles.label} htmlFor="">
             Full Name
-            {db}
             <span className={styles.error}>{errors.name}</span>
           </label>
           <input

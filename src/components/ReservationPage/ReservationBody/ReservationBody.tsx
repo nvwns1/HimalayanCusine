@@ -1,21 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import styles from "./ReservationBody.module.scss";
 import Button from "@/components/component/Button/Button";
+import {
+  IReservationState,
+  reservationFormSchema,
+} from "@/lib/validation/ReservationFormSchema";
+import * as Yup from "yup";
 
-interface IReservationState {
-  fullname: string;
-  email: string;
-  phoneNumber: string;
-  numberOfGuests: number;
-  reservationDate: string;
-  specialRequest: string;
-}
 const initialReservatinState: IReservationState = {
   fullname: "",
   email: "",
-  phoneNumber: "",
-  numberOfGuests: 0,
+  phoneNumber: null,
+  numberOfGuests: null,
   reservationDate: "",
   specialRequest: "",
 };
@@ -24,6 +21,7 @@ const ReservationBody = () => {
   const [formValue, setFormValue] = useState<IReservationState>(
     initialReservatinState
   );
+  const [errors, setErrors] = useState<Partial<IReservationState>>({});
 
   const handleFormChange = (updatedState: Partial<IReservationState>) => {
     setFormValue({
@@ -33,6 +31,50 @@ const ReservationBody = () => {
   };
 
   // TODO: Handle Submit
+
+  const handleSubmit = async (e: FormEvent) => {
+    try {
+      await reservationFormSchema.validate(formValue, { abortEarly: false });
+      setErrors({});
+      const generatedMessage = `FullName: ${formValue.fullname},
+       Email: ${formValue.email},
+       Phone Number: ${formValue.phoneNumber},
+        Number of Guests: ${formValue.numberOfGuests},
+        Reservation Date: ${formValue.reservationDate},
+       Message: ${formValue.specialRequest}`;
+
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formValue.fullname,
+          email: formValue.email,
+          message: generatedMessage,
+          type: "Reservation Form Submission",
+        }),
+      });
+      if (res.ok) {
+        setFormValue(initialReservatinState);
+      } else {
+        console.log("Error sending email");
+      }
+    } catch (validationErrors: any) {
+      const formattedErrors: Partial<IReservationState> =
+        validationErrors.inner.reduce(
+          (acc: Partial<IReservationState>, error: Yup.ValidationError) => {
+            return {
+              ...acc,
+              [error.path as keyof IReservationState]: error.message,
+            };
+          },
+          {}
+        );
+      setErrors(formattedErrors);
+      console.log(errors);
+    }
+  };
   return (
     <div className={styles.reservationBodyWrapper}>
       <div className={styles.reservationFormWrapper}>
@@ -40,6 +82,7 @@ const ReservationBody = () => {
           <div className={styles.inputRow}>
             <label className={styles.label} htmlFor="">
               Full Name
+              <span className={styles.error}>{errors.fullname}</span>
             </label>
             <input
               className={styles.inputField}
@@ -53,6 +96,7 @@ const ReservationBody = () => {
           <div className={styles.inputRow}>
             <label className={styles.label} htmlFor="">
               Email
+              <span className={styles.error}>{errors.email}</span>
             </label>
             <input
               value={formValue.email}
@@ -64,26 +108,27 @@ const ReservationBody = () => {
             />
           </div>
           <div className={styles.inputRow}>
-            <label className={styles.label} htmlFor="">
+            <label className={styles.label} htmlFor="Phone">
               Phone Number
+              <span className={styles.error}>{errors.phoneNumber}</span>
             </label>
             <input
-              value={formValue.phoneNumber}
+              value={formValue.phoneNumber ?? ""}
               className={styles.inputField}
               type="text"
-              placeholder="Phone Number"
-              name="Phone Number"
+              name="Phone"
               onChange={(e) =>
-                handleFormChange({ phoneNumber: e.target.value })
+                handleFormChange({ phoneNumber: parseInt(e.target.value) })
               }
             />
           </div>
           <div className={styles.inputRow}>
             <label className={styles.label} htmlFor="">
               No.of Guests
+              <span className={styles.error}>{errors.numberOfGuests}</span>
             </label>
             <input
-              value={formValue.numberOfGuests}
+              value={formValue.numberOfGuests ?? ""}
               className={styles.inputField}
               type="number"
               name="guests"
@@ -95,13 +140,14 @@ const ReservationBody = () => {
           <div className={styles.inputRow}>
             <label className={styles.label} htmlFor="">
               Reservation Date & Time
+              <span className={styles.error}>{errors.reservationDate}</span>
             </label>
             <input
               value={formValue.reservationDate}
               className={styles.inputField}
-              type="date"
-              placeholder="Phone Number"
-              name="Phone Number"
+              type="datetime-local"
+              placeholder="Date and time"
+              name="DateTime"
               onChange={(e) =>
                 handleFormChange({ reservationDate: e.target.value })
               }
@@ -110,6 +156,7 @@ const ReservationBody = () => {
           <div className={styles.inputRow}>
             <label className={styles.label} htmlFor="">
               Any Special Request
+              <span className={styles.error}>{errors.specialRequest}</span>
             </label>
             <input
               value={formValue.specialRequest}
@@ -122,7 +169,7 @@ const ReservationBody = () => {
             />
           </div>
         </div>
-        <Button>Submit</Button>
+        <Button onClick={handleSubmit}>Submit</Button>
       </div>
     </div>
   );

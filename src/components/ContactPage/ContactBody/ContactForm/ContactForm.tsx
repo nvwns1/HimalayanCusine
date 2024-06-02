@@ -1,21 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import styles from "./ContactForm.module.scss";
 import Button from "@/components/component/Button/Button";
-interface IFormValue {
-  name: string;
-  email: string;
-  message: string;
-}
-const initialState: IFormValue = {
+import {
+  contactFormSchema,
+  IContactFormValues,
+} from "@/lib/validation/ContactFormSchema";
+import * as Yup from "yup";
+import { db } from "@/lib/variable/envVariable";
+
+const initialState: IContactFormValues = {
   name: "",
   email: "",
   message: "",
 };
 const ContactForm = () => {
-  const [formValue, setFormValue] = useState<IFormValue>(initialState);
+  const [formValue, setFormValue] = useState<IContactFormValues>(initialState);
+  const [errors, setErrors] = useState<Partial<IContactFormValues>>({});
 
-  const handleFormChange = (updatedState: Partial<IFormValue>) => {
+  const handleFormChange = (updatedState: Partial<IContactFormValues>) => {
     setFormValue({
       ...formValue,
       ...updatedState,
@@ -23,8 +26,40 @@ const ContactForm = () => {
   };
 
   /*TODO: Handle Submit */
-  const handleSubmit = () => {
-    console.log(formValue);
+  const handleSubmit = async (e: FormEvent) => {
+    try {
+      // Validate the form data
+      await contactFormSchema.validate(formValue, { abortEarly: false });
+      setErrors({});
+
+      // Send data to API
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValue),
+      });
+
+      if (res.ok) {
+        setFormValue(initialState);
+      } else {
+        console.log("Error sending email");
+      }
+    } catch (validationErrors: any) {
+      const formattedErrors: Partial<IContactFormValues> =
+        validationErrors.inner.reduce(
+          (acc: Partial<IContactFormValues>, error: Yup.ValidationError) => {
+            return {
+              ...acc,
+              [error.path as keyof IContactFormValues]: error.message,
+            };
+          },
+          {}
+        );
+      setErrors(formattedErrors);
+      console.log(errors);
+    }
   };
 
   return (
@@ -33,6 +68,8 @@ const ContactForm = () => {
         <div className={styles.inputRow}>
           <label className={styles.label} htmlFor="">
             Full Name
+            {db}
+            <span className={styles.error}>{errors.name}</span>
           </label>
           <input
             className={styles.inputField}
@@ -46,6 +83,7 @@ const ContactForm = () => {
         <div className={styles.inputRow}>
           <label className={styles.label} htmlFor="">
             Email
+            <span className={styles.error}>{errors.email}</span>
           </label>
           <input
             value={formValue.email}
@@ -59,6 +97,7 @@ const ContactForm = () => {
         <div className={styles.inputRow}>
           <label className={styles.label} htmlFor="">
             Message
+            <span className={styles.error}>{errors.message}</span>
           </label>
           <textarea
             value={formValue.message}

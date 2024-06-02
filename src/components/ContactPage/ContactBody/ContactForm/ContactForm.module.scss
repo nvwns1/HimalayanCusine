@@ -37,6 +37,12 @@
     .textarea {
       height: 300px;
     }
+    .error {
+      padding: 0 1rem;
+      font-size: var(--font-xs);
+      color: red;
+      align-items: right;
+    }
   }
 }
 

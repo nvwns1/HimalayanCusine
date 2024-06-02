@@ -6,7 +6,6 @@ interface IDetailData {
   title: string;
   description: string;
 }
-/*TODO: Real Data */
 const detailData: IDetailData[] = [
   { title: "Location", description: "Kathmandu" },
   { title: "Email", description: "123@gmail.com" },

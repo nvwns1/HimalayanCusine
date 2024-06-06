@@ -1,11 +1,6 @@
-import { IContactFormValues } from "@/lib/validation/ContactFormSchema";
 import axios, { AxiosResponse } from "axios";
+import { IContactFormValues } from "@/lib/validation/ContactFormSchema";
 
-export const sendContactEmail = async (data: IContactFormValues) => {
-  const response = await axios.post("/api/send-email", data, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return response.data;
+export const sendEmail = async (data: IContactFormValues) => {
+  return await axios.post("/api/send-email", data);
 };

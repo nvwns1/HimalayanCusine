@@ -7,6 +7,8 @@ import {
   reservationFormSchema,
 } from "@/lib/validation/ReservationFormSchema";
 import * as Yup from "yup";
+import { IContactFormValues } from "@/lib/validation/ContactFormSchema";
+import useSendEmailMutation from "@/hooks/useSendEmailMutation";
 
 const initialReservatinState: IReservationState = {
   fullname: "",
@@ -30,8 +32,16 @@ const ReservationBody = () => {
     });
   };
 
-  // TODO: Handle Submit
+  const sendEmailMutation = useSendEmailMutation({
+    onSuccess: () => {
+      setFormValue(initialReservatinState);
+    },
+    onError: () => {
+      console.log("Error Found");
+    },
+  });
 
+  /* TODO: Handle Loading, error, and Success event */
   const handleSubmit = async (e: FormEvent) => {
     try {
       await reservationFormSchema.validate(formValue, { abortEarly: false });
@@ -43,23 +53,14 @@ const ReservationBody = () => {
         Reservation Date: ${formValue.reservationDate},
        Message: ${formValue.specialRequest}`;
 
-      const res = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formValue.fullname,
-          email: formValue.email,
-          message: generatedMessage,
-          type: "Reservation Form Submission",
-        }),
-      });
-      if (res.ok) {
-        setFormValue(initialReservatinState);
-      } else {
-        console.log("Error sending email");
-      }
+      const formData: IContactFormValues = {
+        name: formValue.fullname,
+        email: formValue.email,
+        message: generatedMessage,
+        type: "Reservation Form Submission",
+      };
+
+      sendEmailMutation.mutate(formData);
     } catch (validationErrors: any) {
       const formattedErrors: Partial<IReservationState> =
         validationErrors.inner.reduce(

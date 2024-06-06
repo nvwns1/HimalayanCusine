@@ -7,6 +7,7 @@ import {
   IContactFormValues,
 } from "@/lib/validation/ContactFormSchema";
 import * as Yup from "yup";
+import useSendEmailMutation from "@/hooks/useSendEmailMutation";
 
 const initialState: IContactFormValues = {
   name: "",
@@ -24,28 +25,22 @@ const ContactForm = () => {
     });
   };
 
-  /*TODO: Handle Submit using tanstack*/
+  const sendEmailMutation = useSendEmailMutation({
+    onSuccess: () => {
+      setFormValue(initialState);
+    },
+    onError: () => {
+      console.log("Error");
+    },
+  });
+
   const handleSubmit = async (e: FormEvent) => {
     try {
-      // Validate the form data
       formValue.type = "Contact Form Submission";
       await contactFormSchema.validate(formValue, { abortEarly: false });
       setErrors({});
 
-      // Send data to API
-      const res = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formValue),
-      });
-
-      if (res.ok) {
-        setFormValue(initialState);
-      } else {
-        console.log("Error sending email");
-      }
+      sendEmailMutation.mutate(formValue);
     } catch (validationErrors: any) {
       const formattedErrors: Partial<IContactFormValues> =
         validationErrors.inner.reduce(
@@ -62,10 +57,12 @@ const ContactForm = () => {
     }
   };
 
+  /* TODO: Handle Loading, error, and Success event */
   return (
     <div className={styles.contactFormWrapper}>
       <div className={styles.inputFieldWrapper}>
         <div className={styles.inputRow}>
+          {/* {sendEmailMutation.isPending && "Loading..."} */}
           <label className={styles.label} htmlFor="">
             Full Name
             <span className={styles.error}>{errors.name}</span>

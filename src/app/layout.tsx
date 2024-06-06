@@ -3,6 +3,7 @@ import "./globals.css";
 import { Merriweather } from "@next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import { ReactQueryClientProvider } from "@/components/component/QueryClientProvider";
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={merriweather.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ReactQueryClientProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ReactQueryClientProvider>
       </body>
     </html>
   );

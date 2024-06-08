@@ -96,7 +96,10 @@ const Navbar = () => {
 
   const mobileView = (
     <>
-      <HamburgerIcon onClick={handleHamburgerClick} />
+      <HamburgerIcon
+        className={styles.hamburgerIcon}
+        onClick={handleHamburgerClick}
+      />
     </>
   );
 

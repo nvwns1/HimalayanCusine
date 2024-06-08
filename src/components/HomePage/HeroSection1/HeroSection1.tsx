@@ -14,7 +14,7 @@ const HeroSection1 = () => {
     <section className={homePageRootClasses}>
       <div className={styles.leftColumn}>
         <Image
-          src="/homepage/momo.jpg"
+          src="/homePage/momo.jpg"
           alt="Logo"
           height={800}
           width={800}

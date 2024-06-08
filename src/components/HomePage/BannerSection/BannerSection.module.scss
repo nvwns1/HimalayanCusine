@@ -7,45 +7,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
-  .leftColumn {
-    width: 50%;
-    height: 100%;
-    justify-content: end;
-    align-items: end;
-
-    .image1 {
-      width: 50%;
-      height: 100%;
-      align-items: end;
-      border: 0.75rem solid var(--gray-20);
-      background-color: var(--gray-60);
-    }
-  }
-
-  .rightColumn {
-    width: 50%;
+  .textSection {
     font-size: var(--text-sm);
+  }
+  .accentTitle {
+    color: var(--accent-color);
   }
 }
 
 @media screen and (max-width: 769px) {
   .bannerSectionRoot {
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
     height: 200px;
     padding: 1rem;
-    .leftColumn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .image1 {
-        left: 0;
-        width: 100%;
-        height: 100%;
-        position: block;
-      }
-    }
   }
 }

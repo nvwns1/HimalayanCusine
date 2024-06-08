@@ -38,6 +38,8 @@
 
   --primary-text: var(--gray-10);
   --secondary-text: var(--gray);
+
+  --accent-color: var(--color-orange);
 }
 
 * {
@@ -89,5 +91,5 @@ a {
 }
 
 p {
-  font-size: var(--font-md);
+  font-size: var(--font-lg);
 }

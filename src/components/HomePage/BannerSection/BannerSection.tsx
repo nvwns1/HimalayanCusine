@@ -8,15 +8,13 @@ const BannerSection = () => {
     "primarySurface"
   );
 
+  // TODO: ADD BANNER IMAGE
   return (
     <section className={bannerRootClasses}>
-      <div className={styles.leftColumn}>
-        <div className={styles.image1}></div>
-      </div>
-      <div className={styles.rightColumn}>
-        &quot; Experience the Authentic Flavors of Himalayas at Himlayan
-        Spices!&quot;
-      </div>
+      <p className={styles.textSection}>
+        &quot; Experience the Authentic Flavors of Himalayas at{" "}
+        <span className={styles.accentTitle}>Himlayan Spices </span>! &quot;
+      </p>
     </section>
   );
 };

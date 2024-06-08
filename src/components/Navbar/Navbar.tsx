@@ -12,20 +12,20 @@ import { EDeviceType } from "@/lib/constants";
 import { ConditionallyRender } from "@/lib/helper/ConditionalRender";
 import { HamburgerIcon } from "@/lib/Svgs";
 
-enum NavButtonIdEnum {
+export enum NavButtonIdEnum {
   HOME = "/",
   MENU = "/menu",
   CONTACT = "/contact",
   RESERVATION = "/reservation",
 }
 
-interface INavLinks {
+export interface INavLinks {
   name: string;
   href: NavButtonIdEnum;
   isButton?: boolean;
 }
 
-const navLinks = [
+export const navLinks = [
   { name: "Home", href: NavButtonIdEnum.HOME },
   { name: "Menu", href: NavButtonIdEnum.MENU },
   { name: "Contact", href: NavButtonIdEnum.CONTACT },

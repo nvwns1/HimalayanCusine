@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ContactDetails.module.scss";
-import { FacebookIconSvg, InstagramIconSvg, WhatsappIconSvg } from "@/lib/Svgs";
+import { FacebookIconSvg, InstagramIconSvg, TiktokIconSvg } from "@/lib/Svgs";
 
 interface IDetailData {
   title: string;
@@ -37,7 +37,7 @@ const ContactDetails = () => {
           <div className={styles.socialsIconWrapper}>
             <FacebookIconSvg className={styles.icon} />
             <InstagramIconSvg className={styles.icon} />
-            <WhatsappIconSvg className={styles.icon} />
+            <TiktokIconSvg className={styles.icon} />
           </div>
         </div> */}
       </div>

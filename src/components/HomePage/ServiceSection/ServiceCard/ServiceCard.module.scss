@@ -37,8 +37,26 @@
 }
 @media screen and (max-width: 768px) {
   .serviceCardRoot {
-    height: 250px;
-    width: 180px;
-    gap: 0.4rem;
+    width: 80%;
+    gap: 0.8rem;
+    background-color: var(--primary-surface);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .imageContainer {
+      display: none;
+    }
+    .heading {
+      font-size: var(--font-xl);
+      color: var(--primary-text);
+      font-weight: normal;
+    }
+    .description {
+      font-size: var(--font-md);
+      color: var(--primary-text);
+      text-align: center;
+      line-height: 1.5;
+    }
   }
 }

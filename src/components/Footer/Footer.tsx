@@ -5,7 +5,9 @@ import styles from "./Footer.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import NewsLetter from "../component/NewsLetter/NewsLetter";
-import { FacebookIconSvg, InstagramIconSvg, WhatsappIconSvg } from "@/lib/Svgs";
+import { FacebookIconSvg, InstagramIconSvg, TiktokIconSvg } from "@/lib/Svgs";
+import { navLinks } from "../Navbar/Navbar";
+import Link from "next/link";
 
 const Footer = () => {
   const footerRootClasses = classNames(styles.footerRoot, "primarySurface");
@@ -18,24 +20,26 @@ const Footer = () => {
     <footer className={footerRootClasses}>
       <div className={styles.footerFirst}>
         <div className={styles.column1}>
-          <Image width={200} height={40} alt="Logo" src={"/asset/logo.png"} />
+          <Link href={"/"}>
+            <Image width={200} height={40} alt="Logo" src={"/asset/logo.png"} />
+          </Link>
         </div>
         <div className={styles.column2}>
-          <p className={styles.columnHeading}>Pages</p>
+          <p className={styles.columnHeading}>Quick Links</p>
           <ul className={styles.column2List}>
-            <li>Home</li>
-            <li>Menu</li>
-            <li>Reservation</li>
-            <li>Contact</li>
-            <li>About Us</li>
-            <li>Location</li>
+            {navLinks.map((navLink) => {
+              return (
+                <Link key={navLink.href} href={navLink.href}>
+                  <li>{navLink.name}</li>
+                </Link>
+              );
+            })}
           </ul>
         </div>
         <div className={styles.column3}>
-          <p className={styles.columnHeading}>Get in touch</p>
+          <p className={styles.columnHeading}>Follow Us </p>
           <div className={styles.column3Body}>
             <div className={styles.iconSection}>
-              <p>Our Socials</p>
               <div className={styles.iconRow}>
                 <FacebookIconSvg
                   className={styles.icon}
@@ -45,17 +49,17 @@ const Footer = () => {
                   className={styles.icon}
                   onClick={handleIconClick}
                 />
-                <WhatsappIconSvg
+                <TiktokIconSvg
                   className={styles.icon}
                   onClick={handleIconClick}
                 />
               </div>
             </div>
 
-            <div className={styles.newsletter}>
+            {/* <div className={styles.newsletter}>
               <p>Subscribe to Our Newsletter</p>
               <NewsLetter />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

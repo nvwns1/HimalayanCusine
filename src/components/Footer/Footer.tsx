@@ -5,15 +5,11 @@ import styles from "./Footer.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import NewsLetter from "../component/NewsLetter/NewsLetter";
-import {
-  FacebookIconSvg,
-  InstagramIconSvg,
-  TiktokIconSvg,
-  socialUrls,
-} from "@/lib/Svgs";
+import { FacebookIconSvg, InstagramIconSvg, TiktokIconSvg } from "@/lib/Svgs";
 import { navLinks } from "../Navbar/Navbar";
 import Link from "next/link";
 import { openURLInNewTab } from "@/lib/helper/openURLInNewTab ";
+import { restaurantData } from "@/lib/variable/data";
 
 const Footer = () => {
   const footerRootClasses = classNames(styles.footerRoot, "primarySurface");
@@ -45,15 +41,21 @@ const Footer = () => {
               <div className={styles.iconRow}>
                 <FacebookIconSvg
                   className={styles.icon}
-                  onClick={() => openURLInNewTab(socialUrls.facebook)}
+                  onClick={() =>
+                    openURLInNewTab(restaurantData.socialUrls.facebook)
+                  }
                 />
                 <InstagramIconSvg
                   className={styles.icon}
-                  onClick={() => openURLInNewTab(socialUrls.instagram)}
+                  onClick={() =>
+                    openURLInNewTab(restaurantData.socialUrls.instagram)
+                  }
                 />
                 <TiktokIconSvg
                   className={styles.icon}
-                  onClick={() => openURLInNewTab(socialUrls.tiktok)}
+                  onClick={() =>
+                    openURLInNewTab(restaurantData.socialUrls.tiktok)
+                  }
                 />
               </div>
             </div>

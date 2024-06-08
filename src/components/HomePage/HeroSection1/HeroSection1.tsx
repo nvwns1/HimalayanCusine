@@ -14,7 +14,7 @@ const HeroSection1 = () => {
     <section className={homePageRootClasses}>
       <div className={styles.leftColumn}>
         <Image
-          src="/homePage/heroSection1/momo.jpg"
+          src="/homePage/hero/momo.jpg"
           alt="Logo"
           height={800}
           width={800}
@@ -38,7 +38,7 @@ const HeroSection1 = () => {
       </div>
       <div className={styles.imageWrapper}>
         <Image
-          src="/homepage/heroSection1/image.png"
+          src="/homepage/hero/image.png"
           alt="Logo"
           height={800}
           width={800}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Merriweather } from "@next/font/google";
+import { Merriweather } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { ReactQueryClientProvider } from "@/components/component/QueryClientProvider";

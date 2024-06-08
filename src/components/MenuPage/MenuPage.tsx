@@ -3,17 +3,15 @@ import React, { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import styles from "./MenuPage.module.scss";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
-).toString();
-
 const MenuPage = () => {
   const [numPages, setNumPages] = useState<number>();
-  const [pageNumber, setPageNumber] = useState<number>(0);
   const [containerWidth, setContainerWidth] = useState<number>(0);
 
   useEffect(() => {
+    pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+      "pdfjs-dist/build/pdf.worker.min.mjs",
+      import.meta.url
+    ).toString();
     const handleResize = () => {
       setContainerWidth(
         document.getElementById("pdf-container")?.offsetWidth || 800

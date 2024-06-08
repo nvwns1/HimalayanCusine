@@ -38,7 +38,7 @@ const HeroSection1 = () => {
       </div>
       <div className={styles.imageWrapper}>
         <Image
-          src="/homepage/image.png"
+          src="/homepage/heroSection1/image.png"
           alt="Logo"
           height={800}
           width={800}

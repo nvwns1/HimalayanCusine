@@ -1,7 +1,9 @@
 .contactFormWrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 
   .inputFieldWrapper {
     display: flex;
@@ -27,7 +29,7 @@
       outline: none;
       border: none;
       height: 50px;
-      width: 400px;
+      width: 100%;
       border-radius: 1rem;
       font-size: var(--font-md);
       font-family: "Merriweather";
@@ -35,7 +37,7 @@
       letter-spacing: 1.25px;
     }
     .textarea {
-      height: 300px;
+      height: 200px;
     }
     .error {
       padding: 0 1rem;
@@ -48,7 +50,10 @@
 
 @media screen and (max-width: 768px) {
   .contactFormWrapper {
-    gap: 1.5rem;
+    padding-top: 1rem;
+    gap: 0.875rem;
+    width: 100%;
+    max-width: 100%;
     .inputFieldWrapper {
       gap: 1rem;
       .inputRow {
@@ -59,7 +64,7 @@
         width: 100%;
       }
       .textarea {
-        height: 200px;
+        height: 150px;
       }
     }
   }

@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./contact.module.scss";
-import ContactHeading from "@/components/ContactPage/ContactHeading/ContactHeading";
 import ContactBody from "@/components/ContactPage/ContactBody/ContactBody";
+import ContactHero1 from "@/components/ContactPage/ContactHero1/ContactHero1";
 const page = () => {
   return (
     <section className={styles.contactSection}>
-      <ContactHeading />
-      <ContactBody />
+      <ContactHero1 />
+      {/* <ContactBody /> */}
     </section>
   );
 };

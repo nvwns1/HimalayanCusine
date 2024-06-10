@@ -5,11 +5,9 @@ import styles from "./Footer.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
 import NewsLetter from "../component/NewsLetter/NewsLetter";
-import { FacebookIconSvg, InstagramIconSvg, TiktokIconSvg } from "@/lib/Svgs";
 import { navLinks } from "../Navbar/Navbar";
 import Link from "next/link";
-import { openURLInNewTab } from "@/lib/helper/openURLInNewTab ";
-import { restaurantData } from "@/lib/variable/data";
+import SocialIcons from "../component/SocialIcons/SocialIcons";
 
 const Footer = () => {
   const footerRootClasses = classNames(styles.footerRoot, "primarySurface");
@@ -37,7 +35,8 @@ const Footer = () => {
         <div className={styles.column3}>
           <p className={styles.columnHeading}>Follow Us </p>
           <div className={styles.column3Body}>
-            <div className={styles.iconSection}>
+            <SocialIcons />
+            {/* <div className={styles.iconSection}>
               <div className={styles.iconRow}>
                 <FacebookIconSvg
                   className={styles.icon}
@@ -58,7 +57,7 @@ const Footer = () => {
                   }
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* <div className={styles.newsletter}>
               <p>Subscribe to Our Newsletter</p>

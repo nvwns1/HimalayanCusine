@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./ReviewSection.module.scss";
 import classNames from "classnames";
@@ -5,6 +6,10 @@ import Button from "@/components/component/Button/Button";
 import ReviewCard from "./ReviewCard/ReviewCard";
 
 const ReviewSection = () => {
+  const handleReviewClick = () => {
+    console.log("Review Button Clicked");
+  };
+
   const reviewRootClasses = classNames(
     styles.reviewSectionRoot,
     "secondarySurface"
@@ -25,7 +30,9 @@ const ReviewSection = () => {
           </p>
           <div className={styles.sectionBody}>
             <p>Discover why our guest love dining Himalayan Spices.</p>
-            <Button background="filled">Give Your Review</Button>
+            <Button background="filled" onClick={handleReviewClick}>
+              Give Your Review
+            </Button>
           </div>
         </div>
       </div>

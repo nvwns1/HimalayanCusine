@@ -4,7 +4,7 @@ import styles from "./ReviewCard.module.scss";
 interface IReviewCard {
   name: string;
   review: string;
-  star: number;
+  star: 1 | 2 | 3 | 4 | 5;
 }
 const ReviewCard = (props: IReviewCard) => {
   const generateStar = useMemo(() => {

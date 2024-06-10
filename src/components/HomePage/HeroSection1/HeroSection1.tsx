@@ -28,7 +28,7 @@ const HeroSection1 = () => {
           <span className={styles.accentHeading}> Authentic </span>
           Nepali Dishes
         </p>
-        <p className={styles.description}>
+        <p>
           Indulge in the flavors of the Himalayas with our traditional Nepali
           recipes, infused with handpicked spices.
         </p>

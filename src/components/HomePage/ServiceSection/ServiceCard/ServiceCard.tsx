@@ -22,7 +22,7 @@ const ServiceCard = (props: IServiceCardProps) => {
         />
       </div>
       <div className={styles.heading}>{props.heading}</div>
-      <div className={styles.description}>{props.description}</div>
+      <p className={styles.description}>{props.description}</p>
     </div>
   );
 };

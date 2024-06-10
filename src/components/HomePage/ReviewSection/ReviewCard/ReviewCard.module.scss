@@ -5,9 +5,12 @@
   gap: 1rem;
   border: 1px solid var(--gray-70);
   height: 160px;
-  min-width: 350px;
+  width: 100%;
   max-width: 450px;
+  min-width: 350px;
   border-radius: 0.5rem;
+  box-sizing: border-box;
+  flex-shrink: 0;
   .reviewCardHeader {
     display: flex;
     flex-direction: column;

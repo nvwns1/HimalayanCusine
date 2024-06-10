@@ -12,17 +12,22 @@ const ReviewSection = () => {
 
   return (
     <section className={reviewRootClasses}>
-      <div className={styles.leftColumn}>
-        <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
-        <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
-      </div>
-      <div className={styles.rightColumn}>
-        <p className={styles.sectionHeading}>
-          What Our <span className={styles.sectionHeadingAccent}> Guests </span>
-          Are Saying?
-        </p>
-        <p>Discover why our guest love dining Himalayan Spices.</p>
-        <Button background="filled">Give Your Review</Button>
+      <div className={styles.reviewSectionWrapper}>
+        <div className={styles.leftColumn}>
+          <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
+          <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
+        </div>
+        <div className={styles.rightColumn}>
+          <p className={styles.sectionHeading}>
+            What Our{" "}
+            <span className={styles.sectionHeadingAccent}> Guests </span>
+            Are Saying?
+          </p>
+          <div className={styles.sectionBody}>
+            <p>Discover why our guest love dining Himalayan Spices.</p>
+            <Button background="filled">Give Your Review</Button>
+          </div>
+        </div>
       </div>
     </section>
   );

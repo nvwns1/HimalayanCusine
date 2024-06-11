@@ -12,4 +12,6 @@ export const restaurantData = {
     instagram: "https://www.instagram.com",
     tiktok: "https://www.tiktok.com",
   },
+
+  hours: "Mon-Fri 5pm-11pm",
 };

@@ -52,6 +52,12 @@
     gap: 1rem;
     .leftColumn,
     .rightColumn {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .locationHeading {
+        font-size: var(--text-md);
+      }
       width: 100%;
       .locationMapWrapper {
         width: 100%;

@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { ConditionallyRender } from "@/lib/helper/ConditionalRender";
 import useDeviceType from "@/hooks/useWindowDimension";
 import { EDeviceType } from "@/lib/constants";
+import Image from "next/image";
 
 const HeroSection3 = () => {
   const deviceType = useDeviceType();
@@ -14,38 +15,6 @@ const HeroSection3 = () => {
     "secondarySurface"
   );
 
-  const deskTopImageGrid = (
-    <div className={styles.imageGrid}>
-      <div className={styles.mainImage}>This is whole Image 1</div>
-      <div className={styles.secondaryImages}>
-        <div className={styles.imageRow}>
-          <div className={styles.image2}>Image 2</div>
-          <div className={styles.image3}>Image 3</div>
-        </div>
-        <div className={styles.imageRow}>
-          <div className={styles.image4}>Image 4</div>
-          <div className={styles.image5}>Image 5</div>
-        </div>
-      </div>
-    </div>
-  );
-
-  const mobileImageGrid = (
-    <div className={styles.imageGrid}>
-      <div className={styles.secondaryImages}>
-        <div className={styles.imageRow}>
-          <div className={styles.image3}>Image 3</div>
-          <div className={styles.image2}>Image 2</div>
-        </div>
-      </div>
-      <div className={styles.secondaryImages}>
-        <div className={styles.imageRow}>
-          <div className={styles.image2}>Image 2</div>
-          <div className={styles.image3}>Image 3</div>
-        </div>
-      </div>
-    </div>
-  );
   return (
     <section className={homePageRootClasses}>
       <div className={styles.titleSection}>
@@ -59,11 +28,27 @@ const HeroSection3 = () => {
           Himalayas.
         </p>
       </div>
-      <ConditionallyRender
-        condition={deviceType === EDeviceType.Desktop}
-        show={deskTopImageGrid}
-        elseShow={mobileImageGrid}
-      />
+
+      <div className={styles.gridContainer}>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image2.jpg"
+            alt="Image 1"
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image3.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+      </div>
     </section>
   );
 };

@@ -15,7 +15,8 @@ const LocationBody = () => {
           </div>
           <div className={styles.rowWrapper}>
             <p className={styles.title}>Hours</p>
-            <p className={styles.description}>{restaurantData.hours}</p>
+            <p className={styles.description}>{restaurantData.hours.hour1}</p>
+            <p className={styles.description}>{restaurantData.hours.hour2}</p>
           </div>
         </div>
       </div>

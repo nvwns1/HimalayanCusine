@@ -15,7 +15,7 @@ export const restaurantData = {
     tiktok: "https://www.tiktok.com",
   },
 
-  hours: "Mon-Fri 5pm-11pm",
+  hours: { hour1: "Mon-Fri 5pm-10:30pm", hour2: "Thu-Sun 12pm-3pm" },
 
   reviewUrl:
     "https://www.google.com/maps/place/Himalayan+Spices/@51.6113399,-0.2800175,18z/data=!4m19!1m10!3m9!1s0x487617cb003160e1:0x4108a34b44dd851!2sHimalayan+Spices!8m2!3d51.6112377!4d-0.280256!10e5!14m1!1BCgIgAQ!16s%2Fg%2F11t7k_fyn1!3m7!1s0x487617cb003160e1:0x4108a34b44dd851!8m2!3d51.6112377!4d-0.280256!9m1!1b1!16s%2Fg%2F11t7k_fyn1?hl=en&entry=ttu",

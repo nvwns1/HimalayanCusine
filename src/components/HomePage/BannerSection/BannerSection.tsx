@@ -9,7 +9,6 @@ const BannerSection = () => {
     "primarySurface"
   );
 
-  // TODO: ADD BANNER IMAGE
   return (
     <section className={bannerRootClasses}>
       <p className={styles.textSection}>
@@ -19,7 +18,6 @@ const BannerSection = () => {
       <Image
         className={styles.bannerImage}
         src="/homePage/gallery/image1.jpg"
-        objectFit="contain"
         alt="Banner"
         fill
       />

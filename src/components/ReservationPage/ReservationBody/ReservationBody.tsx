@@ -1,5 +1,5 @@
 "use client";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useMemo, useState } from "react";
 import styles from "./ReservationBody.module.scss";
 import Button from "@/components/component/Button/Button";
 import {
@@ -10,6 +10,8 @@ import * as Yup from "yup";
 import { IContactFormValues } from "@/lib/validation/ContactFormSchema";
 import useSendEmailMutation from "@/hooks/useSendEmailMutation";
 import { sendEmail } from "@/services/EmailService";
+import { formatDate } from "@/lib/helper/convertDateFormat";
+import { format } from "path";
 
 const initialReservatinState: IReservationState = {
   fullname: "",
@@ -46,17 +48,30 @@ const ReservationBody = () => {
       console.log("Error Found");
     },
   });
+  const formattedDate = useMemo(() => {
+    return formatDate(formValue.reservationDate);
+  }, [formValue.reservationDate]);
 
   const handleSubmit = async (e: FormEvent) => {
     try {
       await reservationFormSchema.validate(formValue, { abortEarly: false });
       setErrors({});
-      const generatedMessage = `FullName: ${formValue.fullname},
-       Email: ${formValue.email},
-       Phone Number: ${formValue.phoneNumber},
-        Number of Guests: ${formValue.numberOfGuests},
-        Reservation Date: ${formValue.reservationDate},
-       Message: ${formValue.specialRequest}`;
+
+      const generatedMessage = `
+  <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+    <h2 style="color: #4CAF50;">Reservation Details</h2>
+    <p><strong>Full Name:</strong> ${formValue.fullname}</p>
+    <p><strong>Email:</strong> ${formValue.email}</p>
+    <p><strong>Phone Number:</strong> ${formValue.phoneNumber}</p>
+    <p><strong>Number of Guests:</strong> ${formValue.numberOfGuests}</p>
+    <p><strong>Reservation Date:</strong> ${formattedDate}</p>
+    <p><strong>Special Request:</strong> ${formValue.specialRequest}</p>
+    <footer style="margin-top: 20px; font-size: 0.9em; color: #777;">
+      <p>Best regards,</p>
+      <p>Himalayan Spices</p>
+    </footer>
+  </div>
+`;
 
       const formData: IContactFormValues = {
         name: formValue.fullname,
@@ -88,7 +103,7 @@ const ReservationBody = () => {
           <div className={styles.inputRow}>
             <p className={styles.message}>{msg}</p>
             <label className={styles.label} htmlFor="">
-              Full Name
+              Full Name {formattedDate}
               <span className={styles.error}>{errors.fullname}</span>
             </label>
             <input
@@ -122,7 +137,7 @@ const ReservationBody = () => {
             <input
               value={formValue.phoneNumber ?? ""}
               className={styles.inputField}
-              type="text"
+              type="number"
               name="Phone"
               onChange={(e) =>
                 handleFormChange({ phoneNumber: parseInt(e.target.value) })

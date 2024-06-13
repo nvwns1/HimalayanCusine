@@ -41,11 +41,28 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     try {
-      formValue.type = "Contact Form Submission";
       await contactFormSchema.validate(formValue, { abortEarly: false });
       setErrors({});
 
-      sendEmailMutation.mutate(formValue);
+      const generatedMessage = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+        <h2 style="color: #4CAF50;">Contact Form</h2>
+        <p><strong>Full Name:</strong> ${formValue.name}</p>
+        <p><strong>Email:</strong> ${formValue.email}</p>
+        <p><strong>Message:</strong>${formValue.message}</p>
+        <footer style="margin-top: 20px; font-size: 0.9em; color: #777;">
+          <p>Best regards,</p>
+          <p>Himalayan Spices</p>
+        </footer>
+      </div>
+    `;
+      const formattedData: IContactFormValues = {
+        name: formValue.name,
+        email: formValue.email,
+        message: generatedMessage,
+        type: "Contact Form Submission",
+      };
+      sendEmailMutation.mutate(formattedData);
     } catch (validationErrors: any) {
       const formattedErrors: Partial<IContactFormValues> =
         validationErrors.inner.reduce(

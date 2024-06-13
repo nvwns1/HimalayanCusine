@@ -4,9 +4,12 @@ import styles from "./ReviewSection.module.scss";
 import classNames from "classnames";
 import Button from "@/components/component/Button/Button";
 import ReviewCard from "./ReviewCard/ReviewCard";
+import { restaurantData, reviewData } from "@/lib/variable/data";
+import { openURLInNewTab } from "@/lib/helper/openURLInNewTab ";
 
 const ReviewSection = () => {
   const handleReviewClick = () => {
+    openURLInNewTab(restaurantData.reviewUrl);
     console.log("Review Button Clicked");
   };
 
@@ -19,8 +22,16 @@ const ReviewSection = () => {
     <section className={reviewRootClasses}>
       <div className={styles.reviewSectionWrapper}>
         <div className={styles.leftColumn}>
-          <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
-          <ReviewCard name="John Doe" star={5} review="The food was amazing!" />
+          {reviewData.map((review, index) => {
+            return (
+              <ReviewCard
+                key={index}
+                name={review.name}
+                star={review.star}
+                review={review.review}
+              />
+            );
+          })}
         </div>
         <div className={styles.rightColumn}>
           <p className={styles.sectionHeading}>

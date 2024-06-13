@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import styles from "./ReviewCard.module.scss";
 
-interface IReviewCard {
+export interface IReviewData {
   name: string;
   review: string;
   star: 1 | 2 | 3 | 4 | 5;
 }
-const ReviewCard = (props: IReviewCard) => {
+const ReviewCard = (props: IReviewData) => {
   const generateStar = useMemo(() => {
     return "⭐".repeat(props.star);
   }, [props.star]);

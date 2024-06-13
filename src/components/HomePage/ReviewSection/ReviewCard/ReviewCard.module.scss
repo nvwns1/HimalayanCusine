@@ -4,13 +4,14 @@
   padding: 1rem;
   gap: 1rem;
   border: 1px solid var(--gray-70);
-  height: 160px;
+  height: auto;
   width: 100%;
   max-width: 450px;
   min-width: 350px;
   border-radius: 0.5rem;
   box-sizing: border-box;
   flex-shrink: 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   .reviewCardHeader {
     display: flex;
     flex-direction: column;
@@ -26,13 +27,13 @@
   }
   .reviewCardReview {
     font-size: var(--font-xs);
-    text-overflow: ellipsis;
+    text-overflow: hidden;
   }
 }
 
 @media screen and (max-width: 768px) {
   .reviewCardRoot {
-    height: 100px;
+    height: auto;
     min-width: 290px;
     max-width: 350px;
   }

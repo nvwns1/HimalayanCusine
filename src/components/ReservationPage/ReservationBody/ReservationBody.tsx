@@ -9,6 +9,7 @@ import {
 import * as Yup from "yup";
 import { IContactFormValues } from "@/lib/validation/ContactFormSchema";
 import useSendEmailMutation from "@/hooks/useSendEmailMutation";
+import { sendEmail } from "@/services/EmailService";
 
 const initialReservatinState: IReservationState = {
   fullname: "",
@@ -20,6 +21,7 @@ const initialReservatinState: IReservationState = {
 };
 
 const ReservationBody = () => {
+  const [msg, setMsg] = useState<string>("");
   const [formValue, setFormValue] = useState<IReservationState>(
     initialReservatinState
   );
@@ -35,13 +37,16 @@ const ReservationBody = () => {
   const sendEmailMutation = useSendEmailMutation({
     onSuccess: () => {
       setFormValue(initialReservatinState);
+      setMsg("Successfully Reserved");
+      setTimeout(() => {
+        setMsg("");
+      }, 10000);
     },
     onError: () => {
       console.log("Error Found");
     },
   });
 
-  /* TODO: Handle Loading, error, and Success event */
   const handleSubmit = async (e: FormEvent) => {
     try {
       await reservationFormSchema.validate(formValue, { abortEarly: false });
@@ -81,6 +86,7 @@ const ReservationBody = () => {
       <div className={styles.reservationFormWrapper}>
         <div className={styles.inputFieldWrapper}>
           <div className={styles.inputRow}>
+            <p className={styles.message}>{msg}</p>
             <label className={styles.label} htmlFor="">
               Full Name
               <span className={styles.error}>{errors.fullname}</span>
@@ -170,7 +176,9 @@ const ReservationBody = () => {
             />
           </div>
         </div>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button disabled={sendEmailMutation.isPending} onClick={handleSubmit}>
+          {sendEmailMutation.isPending ? "Reserving..." : "Submit"}
+        </Button>
       </div>
     </div>
   );

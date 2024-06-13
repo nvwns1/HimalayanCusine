@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ReservationHeading.module.scss";
 
 const ReservationHeading = () => {
@@ -9,8 +9,7 @@ const ReservationHeading = () => {
         Table
       </p>
       <p className={styles.subHeading}>
-        Please fill the form below accurately to enable us serve you better!..
-        welcome!
+        Please fill the form below accurately to enable us serve you better!
       </p>
     </div>
   );

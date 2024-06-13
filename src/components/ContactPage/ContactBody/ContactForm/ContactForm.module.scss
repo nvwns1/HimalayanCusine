@@ -15,6 +15,13 @@
       align-items: flex-start;
       gap: 0.5rem;
 
+      .message {
+        height: 20px;
+        width: 100%;
+        text-align: center;
+        color: var(--color-orange);
+      }
+
       .label {
         font-size: var(--font-md);
         font-weight: 600;

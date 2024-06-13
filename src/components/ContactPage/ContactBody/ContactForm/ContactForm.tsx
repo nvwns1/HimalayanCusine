@@ -15,6 +15,7 @@ const initialState: IContactFormValues = {
   message: "",
 };
 const ContactForm = () => {
+  const [msg, setMsg] = useState<string>("");
   const [formValue, setFormValue] = useState<IContactFormValues>(initialState);
   const [errors, setErrors] = useState<Partial<IContactFormValues>>({});
 
@@ -28,6 +29,10 @@ const ContactForm = () => {
   const sendEmailMutation = useSendEmailMutation({
     onSuccess: () => {
       setFormValue(initialState);
+      setMsg("Message sent successfully");
+      setTimeout(() => {
+        setMsg("");
+      }, 10000);
     },
     onError: () => {
       console.log("Error");
@@ -57,12 +62,11 @@ const ContactForm = () => {
     }
   };
 
-  /* TODO: Handle Loading, error, and Success event */
   return (
     <div className={styles.contactFormWrapper}>
       <div className={styles.inputFieldWrapper}>
         <div className={styles.inputRow}>
-          {/* {sendEmailMutation.isPending && "Loading..."} */}
+          <p className={styles.message}>{msg}</p>
           <label className={styles.label} htmlFor="">
             Full Name
             <span className={styles.error}>{errors.name}</span>
@@ -105,7 +109,9 @@ const ContactForm = () => {
           />
         </div>
       </div>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button disabled={sendEmailMutation.isPending} onClick={handleSubmit}>
+        {sendEmailMutation.isPending ? "Loading..." : "Submit"}
+      </Button>
     </div>
   );
 };

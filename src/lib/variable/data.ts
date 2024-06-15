@@ -10,9 +10,10 @@ export const restaurantData = {
   email2: "himalayanspices.info@gmail.uk",
 
   socialUrls: {
-    facebook: "https://www.facebook.com",
-    instagram: "https://www.instagram.com",
-    tiktok: "https://www.tiktok.com",
+    facebook: "https://www.facebook.com/himalayanspices.22",
+    instagram: "https://www.instagram.com/himalayan.spices",
+    tiktok:
+      "https://www.tiktok.com/@himalayan_spices?_r=1&_d=e180em9ddb36mb&sec_uid=MS4wLjABAAAA7cuLilwqsRPM2SC3ggTBm_uboEcyohxvT9jS5jgUwOhCvaTIbzf3fu9dRdOoe-UV&share_author_id=7067208941499925510&sharer_language=en&source=h5_m&u_code=d276e1983ic89l&ug_btm=b6880,b5836&sec_user_id=MS4wLjABAAAAAmEcM2CWLBaMQ_va0V1iSRldpaBy52oCRV0CDiPsmBnhxawy8zvANPdb_r-WVerR&utm_source=copy&social_share_type=5&utm_campaign=client_share&utm_medium=ios&tt_from=copy&user_id=6603245507711254533&enable_checksum=1&share_link_id=AAC21B42-1A3F-4FA2-8943-122C90C3D4CB&share_app_id=1233",
   },
 
   hours: { hour1: "Mon-Fri 5pm-10:30pm", hour2: "Thu-Sun 12pm-3pm" },

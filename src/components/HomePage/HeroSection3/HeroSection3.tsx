@@ -48,6 +48,60 @@ const HeroSection3 = () => {
             fill
           />
         </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image4.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image5.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image6.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image7.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image8.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
+        <div className={styles.gridItem}>
+          <Image
+            className={styles.img}
+            src="/homePage/gallery/image9.jpg"
+            alt="Image 2"
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            fill
+          />
+        </div>
       </div>
     </section>
   );

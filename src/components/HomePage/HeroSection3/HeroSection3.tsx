@@ -37,6 +37,7 @@ const HeroSection3 = () => {
             alt="Image 1"
             fill
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -46,6 +47,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -55,6 +57,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -64,6 +67,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -73,6 +77,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -81,6 +86,7 @@ const HeroSection3 = () => {
             src="/homePage/gallery/image7.jpg"
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
             fill
           />
         </div>
@@ -91,6 +97,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
         <div className={styles.gridItem}>
@@ -100,6 +107,7 @@ const HeroSection3 = () => {
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority
           />
         </div>
       </div>

@@ -33,7 +33,7 @@ const HeroSection3 = () => {
         <div className={styles.gridItem}>
           <Image
             className={styles.img}
-            src="/homePage/gallery/image2.jpg"
+            src="/homePage/gallery/Image2.jpg"
             alt="Image 1"
             fill
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -43,7 +43,7 @@ const HeroSection3 = () => {
         <div className={styles.gridItem}>
           <Image
             className={styles.img}
-            src="/homePage/gallery/image3.jpg"
+            src="/homePage/gallery/Image3.jpg"
             alt="Image 2"
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill

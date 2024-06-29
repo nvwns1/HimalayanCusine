@@ -3,8 +3,12 @@ import styles from "./ContactHeading.module.scss";
 import { restaurantData } from "@/lib/variable/data";
 import Image from "next/image";
 import SocialIcons from "@/components/component/SocialIcons/SocialIcons";
+import Link from "next/link";
 
 const ContactHeading = () => {
+  let cleanedPhoneNumber1 = restaurantData.phoneNumber1.replace(/\s/g, "");
+  let cleanedPhoneNumber2 = restaurantData.phoneNumber2.replace(/\s/g, "");
+
   return (
     <div className={styles.contactHeadingWrapper}>
       <div className={styles.leftColumn}>
@@ -13,7 +17,25 @@ const ContactHeading = () => {
           Us
         </p>
         <div className={styles.description}>
-          <p>info</p>
+          <p>
+            Call us: <br />
+            <Link
+              href={`tel:+44${cleanedPhoneNumber1}`}
+              className={styles.phoneNumber}
+            >
+              {restaurantData.phoneNumber1}
+            </Link>
+            &ensp;
+            <Link
+              href={`tel:+44${cleanedPhoneNumber2}`}
+              className={styles.phoneNumber}
+            >
+              {restaurantData.phoneNumber2}
+            </Link>
+          </p>
+        </div>
+        <div className={styles.description}>
+          <p>Info:</p>
           <SocialIcons size={20} />
         </div>
       </div>

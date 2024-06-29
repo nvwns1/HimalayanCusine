@@ -57,7 +57,7 @@
 
 @media screen and (max-width: 768px) {
   .contactFormWrapper {
-    padding-top: 1rem;
+    padding: 0;
     gap: 0.875rem;
     width: 100%;
     max-width: 100%;
@@ -72,6 +72,9 @@
       }
       .textarea {
         height: 150px;
+      }
+      .message {
+        height: 1.25rem;
       }
     }
   }
